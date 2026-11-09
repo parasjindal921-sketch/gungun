@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#190e19">
+<title>Our Little Forever ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #190e19;
+  --pink: #f3a9bf;
+  --cream: #fff4ed;
+  --muted: #d8bdc9;
+  --glass: rgba(255,255,255,.07);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 10% 10%, #71334d44, transparent 45%),
+    radial-gradient(ellipse at 90% 80%, #673d7140, transparent 40%),
+    var(--bg);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+}
+
+button { font: inherit; cursor: pointer; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 6%;
+  background: #190e19e8;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #ffffff15;
+}
+
+.brand {
+  color: var(--pink);
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.music-btn {
+  border: 1px solid #f3a9bf88;
+  color: white;
+  background: transparent;
+  padding: 10px 17px;
+  border-radius: 30px;
+}
+
+section {
+  width: min(1150px, 90%);
+  margin: auto;
+  padding: 100px 0;
+}
+
+.hero {
+  min-height: 88vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--pink);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 10px;
+}
+
+h1 {
+  font: 600 clamp(54px, 10vw, 105px)/1.05 'Playfair Display', serif;
+  margin: 25px 0;
+}
+
+h1 em { color: var(--pink); }
+
+.hero p, .section-desc {
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 560px;
+  margin: 0 auto 30px;
+  font-size: 14px;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--pink);
+  color: #291321;
+  border: none;
+  border-radius: 40px;
+  padding: 14px 25px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.heart {
+  color: var(--pink);
+  font-size: 28px;
+  margin-top: 28px;
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.2); }
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-head h2, .promise h2 {
+  font: 500 clamp(34px, 6vw, 54px) 'Playfair Display', serif;
+  margin: 15px 0;
+}
+
+.paper {
+  max-width: 780px;
+  margin: auto;
+  padding: clamp(25px, 5vw, 55px);
+  background: linear-gradient(145deg, #fff2f018, #ffffff08);
+  border: 1px solid #f3a9bf44;
+  border-radius: 8px 28px;
+  box-shadow: 0 20px 65px #0003;
+}
+
+.paper h3 {
+  font: italic 29px 'Playfair Display', serif;
+  color: var(--pink);
+}
+
+.paper p {
+  color: #f2dfe7;
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 18px;
+}
+
+.signature {
+  color: var(--pink);
+  font: italic 26px 'Playfair Display', serif;
+  margin-top: 28px;
+}
+
+/* MEMORY WALL: FOUR COLUMNS ON DESKTOP */
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.memory {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border-radius: 15px;
+  background: #392537;
+  border: 1px solid #ffffff20;
+}
+
+.memory img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform .5s;
+}
+
+.memory:hover img {
+  transform: scale(1.06);
+}
+
+.memory .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 35px 12px 14px;
+  background: linear-gradient(transparent, #000c);
+  color: white;
+  font-size: 12px;
+}
+
+.video-box {
+  max-width: 700px;
+  margin: 35px auto 0;
+}
+
+.video-box video {
+  width: 100%;
+  border-radius: 16px;
+  background: #000;
+  display: block;
+}
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.reason {
+  padding: 25px;
+  background: var(--glass);
+  border: 1px solid #ffffff17;
+  border-radius: 15px;
+}
+
+.reason h3 {
+  color: var(--pink);
+  font: 22px 'Playfair Display', serif;
+  margin-top: 0;
+}
+
+.reason p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.promise { text-align: center; }
+
+.promise blockquote {
+  max-width: 780px;
+  margin: 30px auto;
+  color: #f8dce5;
+  font: italic clamp(25px, 4vw, 40px)/1.5 'Playfair Display', serif;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  border-top: 1px solid #ffffff15;
+  color: #c09cac;
+  font-size: 12px;
+}
+
+/* MUSIC START SCREEN */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #170d18f7;
+  display: grid;
+  place-items: center;
+  padding: 25px;
+  text-align: center;
+  transition: opacity .5s, visibility .5s;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.start-card { max-width: 430px; }
+
+.start-card h2 {
+  font: 500 43px 'Playfair Display', serif;
+  margin: 18px 0;
+}
+
+.start-card p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 13px;
+  margin-bottom: 28px;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .memory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 550px) {
+  section { padding: 75px 0; }
+  .memory-grid { gap: 10px; }
+  .memory { border-radius: 10px; }
+  .reasons { grid-template-columns: 1fr; }
+  .topbar { padding: 14px 5%; }
+  .brand { letter-spacing: 2px; font-size: 9px; }
+  .music-btn { padding: 9px 12px; font-size: 11px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="loveSong"
+       src="./assets/our-song.mp3"
+       loop
+       preload="auto"
+       playsinline>
+</audio>
+
+<!-- MUSIC START SCREEN -->
+<div class="overlay" id="musicOverlay">
+  <div class="start-card">
+    <div class="heart">♡</div>
+    <div class="eyebrow">A little world made for you</div>
+    <h2>Just for you, my love.</h2>
+    <p>
+      Close your eyes for a moment and let our song play.
+      Every little memory here belongs to us.
+    </p>
+    <button class="cta" id="startButton">
+      Open our memories ♡
+    </button>
+    <p id="musicStatus" aria-live="polite" style="margin-top:15px">
+      Our song is waiting for you.
+    </p>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="brand">Our Little Forever ♡</div>
+  <button class="music-btn" id="musicButton">
+    ♫ Play our song
+  </button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="eyebrow">To my favourite person</div>
+    <h1>Our Story.<br><em>Our Forever.</em></h1>
+    <p>
+      You are my favourite hello, my safest feeling,
+      and the person I want beside me in every chapter
+      of my life. This little website is just for you.
+    </p>
+    <a class="cta" href="#proposal">Read my heart ♡</a>
+    <div class="heart">♥</div>
+  </div>
+</section>
+
+<!-- PROPOSAL -->
+<section id="proposal">
+  <div class="section-head">
+    <div class="eyebrow">A letter from my heart</div>
+    <h2>Will you be my forever?</h2>
+    <p class="section-desc">
+      A little promise, from me to you.
+    </p>
+  </div>
+
+  <div class="paper">
+    <h3>My love,</h3>
+
+    <p>
+      Pata hai, kabhi-kabhi words kam pad jaate hain
+      yeh batane ke liye ki aap mere liye kitni special ho.
+      Aap meri zindagi ka woh hissa ho jiske bina main
+      apna kal imagine bhi nahi karna chahta.
+    </p>
+
+    <p>
+      Main yeh promise nahi karunga ki har din perfect hoga
+      ya hum kabhi ladenge nahi. Lekin main yeh zaroor
+      promise karta hoon ki har mushkil mein aapka haath
+      thaamne ki koshish karunga, aapki feelings samjhunga,
+      apni galtiyon se seekhunga aur aapko khush rakhne
+      ke liye hamesha effort karunga.
+    </p>
+
+    <p>
+      Mujhe aapke saath chhoti-chhoti khushiyan jeeni hain,
+      random baaton par hasna hai, dreams poore karne hain,
+      aur life ke har naye chapter mein aapko apne saath
+      rakhna hai.
+    </p>
+
+    <p>
+      Main aapko sirf aaj ke liye nahi, apne aane wale
+      har kal ke liye choose karta hoon.
+    </p>
+
+    <p>
+      <strong>
+        Toh meri future wifey… kya aap mera haath pakad kar
+        meri forever banogi?
+      </strong>
+    </p>
+
+    <p>
+      I love you more than these words can ever explain. ❤️
+    </p>
+
+    <div class="signature">Forever yours, ♡</div>
+  </div>
+</section>
+
+<!-- MEMORY WALL -->
+<section id="memories">
+  <div class="section-head">
+    <div class="eyebrow">Little moments, endless love</div>
+    <h2>Our Memory Wall</h2>
+    <p class="section-desc">
+      Every picture has a story. Every story has you.
+    </p>
+  </div>
+
+  <div class="memory-grid">
+
+    <div class="memory">
+      <img src="./assets/memory-1.jpg"
+           alt="Our special memory one"
+           loading="lazy">
+      <div class="caption">A little sign of us ♡</div>
+    </div>
+
+    <div class="memory">
+      <img src="./assets/memory-2.jpg"
+           alt="Our special memory two"
+           loading="lazy">
+      <div class="caption">A tiny thing, a big memory</div>
+    </div>
+
+    <div class="memory">
+      <img src="./assets/memory-3.jpg"
+           alt="Our special memory three"
+           loading="lazy">
+      <div class="caption">Keeping you close, always</div>
+    </div>
+
+    <div class="memory">
+      <img src="./assets/memory-4.png"
+           alt="Our favourite couple photo"
+           loading="lazy">
+      <div class="caption">My favourite happiness ♡</div>
+    </div>
+
+  </div>
+
+  <!-- SPECIAL VIDEO -->
+  <div class="video-box">
+    <div class="section-head" style="margin-top:55px">
+      <div class="eyebrow">One more memory</div>
+      <h2>Our little moments</h2>
+    </div>
+
+    <video controls playsinline preload="metadata">
+      <source src="./assets/special-memory.mp4" type="video/mp4">
+      Your browser does not support this video.
+    </video>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section>
+  <div class="section-head">
+    <div class="eyebrow">A thousand reasons</div>
+    <h2>Why it's always you</h2>
+    <p class="section-desc">
+      Some of the countless little things that make you special.
+    </p>
+  </div>
+
+  <div class="reasons">
+    <div class="reason">
+      <h3>Your smile ♡</h3>
+      <p>Seeing you happy makes my whole day better.</p>
+    </div>
+
+    <div class="reason">
+      <h3>Your heart ♡</h3>
+      <p>The way you care and love makes you precious to me.</p>
+    </div>
+
+    <div class="reason">
+      <h3>Your little ways ♡</h3>
+      <p>Even the smallest things you do become my favourite memories.</p>
+    </div>
+
+    <div class="reason">
+      <h3>Simply, you ♡</h3>
+      <p>I don't need a reason every day. My heart chooses you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOREVER PROMISE -->
+<section class="promise">
+  <div class="eyebrow">One last thing, my love</div>
+  <h2>A promise for tomorrow</h2>
+
+  <blockquote>
+    "In every version of my future, I hope I get to
+    find you there — holding your hand, making memories,
+    and calling you my home."
+  </blockquote>
+
+  <div class="heart">♥</div>
+
+  <p class="section-desc">
+    This is our little forever. I hope our story keeps
+    getting more beautiful.
+  </p>
+
+  <a class="cta" href="#proposal">Read my proposal again ♡</a>
+</section>
+
+<footer>
+  Made with all my love, just for you. ♡
+</footer>
+
+<script>
+const song = document.getElementById("loveSong");
+const overlay = document.getElementById("musicOverlay");
+const startButton = document.getElementById("startButton");
+const musicButton = document.getElementById("musicButton");
+const musicStatus = document.getElementById("musicStatus");
+
+function updateMusicButton() {
+  musicButton.textContent = song.paused
+    ? "♫ Play our song"
+    : "♫ Music playing";
+}
+
+async function startMusic() {
+  try {
+    await song.play();
+    updateMusicButton();
+    musicStatus.textContent = "Our song is playing ♡";
+    overlay.classList.add("hidden");
+    return true;
+  } catch (error) {
+    updateMusicButton();
+    musicStatus.textContent =
+      "Tap the button once more if your browser blocked the music.";
+    return false;
+  }
+}
+
+// Try autoplay when the page loads.
+// Browsers may block autoplay with sound.
+window.addEventListener("load", () => {
+  startMusic();
+});
+
+// Start music after the visitor taps the opening button.
+startButton.addEventListener("click", async () => {
+  await startMusic();
+  overlay.classList.add("hidden");
+});
+
+// Music play / pause button.
+musicButton.addEventListener("click", async () => {
+  if (song.paused) {
+    await startMusic();
+  } else {
+    song.pause();
+    updateMusicButton();
+  }
+});
+
+// Keep the button label synchronized.
+song.addEventListener("play", updateMusicButton);
+song.addEventListener("pause", updateMusicButton);
+
+// Show a helpful error if the music file cannot be found.
+song.addEventListener("error", () => {
+  musicStatus.textContent =
+    "Music file could not load. Please check assets/our-song.mp3.";
+  musicButton.textContent = "♫ Music unavailable";
+});
+</script>
+
+</body>
+</html>
