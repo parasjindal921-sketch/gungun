@@ -1,1 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#190e19">
+<title>Our Little Forever ♡</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #190e19;
+  --pink: #f3a9bf;
+  --cream: #fff4ed;
+  --muted: #d8bdc9;
+  --glass: rgba(255,255,255,.07);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 10% 10%, #71334d44, transparent 45%),
+    radial-gradient(ellipse at 90% 80%, #673d7140, transparent 40%),
+    var(--bg);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+}
+
+button { font: inherit; cursor: pointer; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 6%;
+  background: #190e19e8;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #ffffff15;
+}
+
+.brand {
+  color: var(--pink);
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.music-btn {
+  border: 1px solid #f3a9bf88;
+  color: white;
+  background: transparent;
+  padding: 10px 17px;
+  border-radius: 30px;
+}
+
+section {
+  width: min(1150px, 90%);
+  margin: auto;
+  padding: 100px 0;
+}
+
+.hero {
+  min-height: 88vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--pink);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 10px;
+}
+
+h1 {
+  font: 600 clamp(54px, 10vw, 105px)/1.05 'Playfair Display', serif;
+  margin: 25px 0;
+}
+
+h1 em { color: var(--pink); }
+
+.hero p, .section-desc {
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 560px;
+  margin: 0 auto 30px;
+  font-size: 14px;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--pink);
+  color: #291321;
+  border: none;
+  border-radius: 40px;
+  padding: 14px 25px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.heart {
+  color: var(--pink);
+  font-size: 28px;
+  margin-top: 28px;
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.2); }
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-head h2, .promise h2 {
+  font: 500 clamp(34px, 6vw, 54px) 'Playfair Display', serif;
+  margin: 15px 0;
+}
+
+.paper {
+  max-width: 780px;
+  margin: auto;
+  padding: clamp(25px, 5vw, 55px);
+  background: linear-gradient(145deg, #fff2f018, #ffffff08);
+  border: 1px solid #f3a9bf44;
+  border-radius: 8px 28px;
+  box-shadow: 0 20px 65px #0003;
+}
+
+.paper h3 {
+  font: italic 29px 'Playfair Display', serif;
+  color: var(--pink);
+}
+
+.paper p {
+  color: #f2dfe7;
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 18px;
+}
+
+.signature {
+  color: var(--pink);
+  font: italic 26px 'Playfair Display', serif;
+  margin-top: 28px;
+}
+
+/* MEMORY WALL: THREE COLUMNS ON DESKTOP */
+
+.memory-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.memory-grid .memory {
+  width: calc((100% - 32px) / 3);
+}
+
+.memory {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border-radius: 15px;
+  background: #392537;
+  border: 1px solid #ffffff20;
+}
+
+.memory img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform .5s;
+}
+
+.memory:hover img {
+  transform: scale(1.06);
+}
+
+/* Shown only if a photo truly cannot be found */
+.memory.missing::before {
+  content: "♡";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 54px;
+  color: var(--pink);
+  opacity: .5;
+}
+
+.memory .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 35px 12px 14px;
+  background: linear-gradient(transparent, #000c);
+  color: white;
+  font-size: 12px;
+}
+
+.video-box {
+  max-width: 700px;
+  margin: 35px auto 0;
+}
+
+.video-box video {
+  width: 100%;
+  border-radius: 16px;
+  background: #000;
+  display: block;
+}
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.reason {
+  padding: 25px;
+  background: var(--glass);
+  border: 1px solid #ffffff17;
+  border-radius: 15px;
+}
+
+.reason h3 {
+  color: var(--pink);
+  font: 22px 'Playfair Display', serif;
+  margin-top: 0;
+}
+
+.reason p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.promise { text-align: center; }
+
+.promise blockquote {
+  max-width: 780px;
+  margin: 30px auto;
+  color: #f8dce5;
+  font: italic clamp(25px, 4vw, 40px)/1.5 'Playfair Display', serif;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  border-top: 1px solid #ffffff15;
+  color: #c09cac;
+  font-size: 12px;
+}
+
+/* MUSIC START SCREEN */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #170d18f7;
+  display: grid;
+  place-items: center;
+  padding: 25px;
+  text-align: center;
+  transition: opacity .5s, visibility .5s;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.start-card { max-width: 430px; }
+
+.start-card h2 {
+  font: 500 43px 'Playfair Display', serif;
+  margin: 18px 0;
+}
+
+.start-card p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 13px;
+  margin-bottom: 28px;
+}
+
+
+/* QUIZ */
+.quiz-card {
+  max-width: 640px;
+  margin: auto;
+  padding: clamp(22px, 5vw, 42px);
+  background: var(--glass);
+  border: 1px solid #f3a9bf44;
+  border-radius: 8px 28px;
+  text-align: center;
+}
+.quiz-progress { color: var(--pink); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
+.quiz-q { font: 500 clamp(22px, 4vw, 30px)/1.4 'Playfair Display', serif; margin: 18px 0 24px; }
+.quiz-options { display: grid; gap: 12px; }
+.quiz-opt {
+  background: #ffffff0d; color: var(--cream);
+  border: 1px solid #ffffff2a; border-radius: 14px;
+  padding: 14px 18px; font-size: 14px; transition: .25s;
+}
+.quiz-opt:hover:not(:disabled) { border-color: var(--pink); background: #f3a9bf22; }
+.quiz-opt.right { background: #f3a9bf; color: #291321; border-color: var(--pink); font-weight: 600; }
+.quiz-opt.wrong { opacity: .45; }
+.quiz-feedback { min-height: 52px; margin: 18px 0 6px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.quiz-big { font: italic 600 clamp(26px, 5vw, 36px)/1.3 'Playfair Display', serif; color: var(--pink); margin: 14px 0; }
+.final-actions { position: relative; height: 130px; margin-top: 18px; }
+.final-actions .cta, .final-actions .no-btn { position: absolute; }
+.final-actions .yes-btn { left: 50%; top: 10px; transform: translateX(-50%); }
+.no-btn {
+  left: 50%; top: 74px; transform: translateX(-50%);
+  background: transparent; color: var(--muted);
+  border: 1px solid #ffffff33; border-radius: 40px; padding: 10px 20px;
+  transition: left .25s, top .25s;
+}
+.float-heart {
+  position: fixed; bottom: -30px; z-index: 30; pointer-events: none;
+  color: var(--pink); animation: floatUp 3.2s ease-out forwards;
+}
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
+}
+
+/* TABLET */
+
+@media (max-width: 700px) {
+  .memory-grid { max-width: 380px; margin: auto; }
+  .memory-grid .memory { width: 100%; }
+}
+
+/* MOBILE */
+
+@media (max-width: 550px) {
+  section { padding: 75px 0; }
+  .memory { border-radius: 10px; }
+  .reasons { grid-template-columns: 1fr; }
+  .topbar { padding: 14px 5%; }
+  .brand { letter-spacing: 2px; font-size: 9px; }
+  .music-btn { padding: 9px 12px; font-size: 11px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC (source is set and verified by the script below) -->
+<audio id="loveSong" loop preload="auto" playsinline></audio>
+
+<!-- MUSIC START SCREEN -->
+<div class="overlay" id="musicOverlay">
+  <div class="start-card">
+    <div class="heart">♡</div>
+    <div class="eyebrow">A little world made for you</div>
+    <h2>Just for you, my love.</h2>
+    <p>
+      Close your eyes for a moment and let our song play.
+      Every little memory here belongs to us.
+    </p>
+    <button class="cta" id="startButton">
+      Open our memories ♡
+    </button>
+    <p id="musicStatus" aria-live="polite" style="margin-top:15px">
+      Tap the button and our song will begin.
+    </p>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="brand">Our Little Forever ♡</div>
+  <button class="music-btn" id="musicButton">
+    ♫ Play our song
+  </button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="eyebrow">To my favourite person</div>
+    <h1>Our Story.<br><em>Our Forever.</em></h1>
+    <p>
+      You are my favourite hello, my safest feeling,
+      and the person I want beside me in every chapter
+      of my life. This little website is just for you.
+    </p>
+    <a class="cta" href="#proposal">Read my heart ♡</a>
+    <div class="heart">♥</div>
+  </div>
+</section>
+
+<!-- PROPOSAL -->
+<section id="proposal">
+  <div class="section-head">
+    <div class="eyebrow">A letter from my heart</div>
+    <h2>Will you be my forever?</h2>
+    <p class="section-desc">
+      A little promise, from me to you.
+    </p>
+  </div>
+
+  <div class="paper">
+    <h3>My love,</h3>
+
+    <p>
+      Pata hai, kabhi-kabhi words kam pad jaate hain
+      yeh batane ke liye ki aap mere liye kitni special ho.
+      Aap meri zindagi ka woh hissa ho jiske bina main
+      apna kal imagine bhi nahi karna chahta.
+    </p>
+
+    <p>
+      Main yeh promise nahi karunga ki har din perfect hoga
+      ya hum kabhi ladenge nahi. Lekin main yeh zaroor
+      promise karta hoon ki har mushkil mein aapka haath
+      thaamne ki koshish karunga, aapki feelings samjhunga,
+      apni galtiyon se seekhunga aur aapko khush rakhne
+      ke liye hamesha effort karunga.
+    </p>
+
+    <p>
+      Mujhe aapke saath chhoti-chhoti khushiyan jeeni hain,
+      random baaton par hasna hai, dreams poore karne hain,
+      aur life ke har naye chapter mein aapko apne saath
+      rakhna hai.
+    </p>
+
+    <p>
+      Main aapko sirf aaj ke liye nahi, apne aane wale
+      har kal ke liye choose karta hoon.
+    </p>
+
+    <p>
+      <strong>
+        Toh meri future wifey… kya aap mera haath pakad kar
+        meri forever banogi?
+      </strong>
+    </p>
+
+    <p>
+      I love you more than these words can ever explain. ❤️
+    </p>
+
+    <div class="signature">Forever yours, ♡</div>
+  </div>
+</section>
+
+<!-- MEMORY WALL -->
+<section id="memories">
+  <div class="section-head">
+    <div class="eyebrow">Little moments, endless love</div>
+    <h2>Our Memory Wall</h2>
+    <p class="section-desc">
+      Every picture has a story. Every story has you.
+    </p>
+  </div>
+
+  <!-- Each image only needs its base name (no extension).
+       The script finds the right file type automatically. -->
+  <div class="memory-grid">
+
+    <div class="memory">
+      <img data-name="memory-1" alt="A little sign of us">
+      <div class="caption">A little sign of us ♡</div>
+    </div>
+
+    <div class="memory">
+      <img data-name="memory-2" alt="Keeping you close, always">
+      <div class="caption">Keeping you close, always</div>
+    </div>
+
+    <div class="memory">
+      <img data-name="memory-3" alt="A tiny thing, a big memory">
+      <div class="caption">A tiny thing, a big memory</div>
+    </div>
+
+    <div class="memory">
+      <img data-name="memory-4" alt="Sipping happiness with you" style="object-position:center 88%">
+      <div class="caption">Sipping happiness with you ♡</div>
+    </div>
+
+    <div class="memory">
+      <img data-name="memory-5" alt="Our little coffee dates">
+      <div class="caption">Our little coffee dates</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="section-head">
+    <div class="eyebrow">One more memory</div>
+    <h2>Our little moments</h2>
+    <p class="section-desc">Our drives together, fast-forwarded. The song pauses while this plays.</p>
+  </div>
+  <div class="video-box" style="max-width:360px;margin-top:0">
+    <video id="memoryVideo" controls playsinline preload="metadata">
+      <source src="./assets/special-memory.mp4" type="video/mp4">
+      Your browser does not support this video.
+    </video>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="section-head">
+    <div class="eyebrow">A little game for you</div>
+    <h2>How well do you know us?</h2>
+    <p class="section-desc">A few small questions about our small moments. Let's see how much you remember.</p>
+  </div>
+  <div class="quiz-card" id="quizCard"></div>
+</section>
+
+<!-- REASONS -->
+<section>
+  <div class="section-head">
+    <div class="eyebrow">A thousand reasons</div>
+    <h2>Why it's always you</h2>
+    <p class="section-desc">
+      Some of the countless little things that make you special.
+    </p>
+  </div>
+
+  <div class="reasons">
+    <div class="reason">
+      <h3>Your smile ♡</h3>
+      <p>Seeing you happy makes my whole day better.</p>
+    </div>
+
+    <div class="reason">
+      <h3>Your heart ♡</h3>
+      <p>The way you care and love makes you precious to me.</p>
+    </div>
+
+    <div class="reason">
+      <h3>Your little ways ♡</h3>
+      <p>Even the smallest things you do become my favourite memories.</p>
+    </div>
+
+    <div class="reason">
+      <h3>Simply, you ♡</h3>
+      <p>I don't need a reason every day. My heart chooses you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOREVER PROMISE -->
+<section class="promise">
+  <div class="eyebrow">One last thing, my love</div>
+  <h2>A promise for tomorrow</h2>
+
+  <blockquote>
+    "In every version of my future, I hope I get to
+    find you there — holding your hand, making memories,
+    and calling you my home."
+  </blockquote>
+
+  <div class="heart">♥</div>
+
+  <p class="section-desc">
+    This is our little forever. I hope our story keeps
+    getting more beautiful.
+  </p>
+
+  <a class="cta" href="#proposal">Read my proposal again ♡</a>
+</section>
+
+<footer>
+  Made with all my love, just for you. ♡
+</footer>
+
+<script>
+/* ---------- PHOTOS: auto-find the correct file extension ---------- */
+const IMAGE_EXTS = ["jpg", "jpeg", "png", "webp", "JPG", "JPEG", "PNG", "WEBP"];
+
+document.querySelectorAll("img[data-name]").forEach((img) => {
+  const name = img.dataset.name;
+  let i = 0;
+
+  function tryNext() {
+    if (i >= IMAGE_EXTS.length) {
+      img.removeEventListener("error", tryNext);
+      img.removeAttribute("src");
+      img.style.display = "none";
+      img.closest(".memory").classList.add("missing");
+      console.warn("Photo not found in /assets:", name);
+      return;
+    }
+    img.src = "./assets/" + name + "." + IMAGE_EXTS[i++];
+  }
+
+  img.addEventListener("error", tryNext);
+  tryNext();
+});
+
+/* ---------- MUSIC ---------- */
+const song = document.getElementById("loveSong");
+const overlay = document.getElementById("musicOverlay");
+const startButton = document.getElementById("startButton");
+const musicButton = document.getElementById("musicButton");
+const musicStatus = document.getElementById("musicStatus");
+
+// Tries these file names in order until one loads.
+const SONG_FILES = [
+  "our-song.mp3", "our-song.MP3", "our-song.m4a",
+  "our-song.wav", "our-song.ogg"
+];
+let songIndex = 0;
+let songMissing = false;
+
+function loadNextSong() {
+  if (songIndex >= SONG_FILES.length) {
+    songMissing = true;
+    musicStatus.textContent =
+      "Music file not found. Put our-song.mp3 inside the assets folder.";
+    musicButton.textContent = "♫ Music unavailable";
+    return;
+  }
+  song.src = "./assets/" + SONG_FILES[songIndex++];
+  song.load();
+}
+
+song.addEventListener("error", loadNextSong);
+loadNextSong();
+
+function updateMusicButton() {
+  if (songMissing) return;
+  musicButton.textContent = song.paused
+    ? "♫ Play our song"
+    : "♫ Music playing";
+}
+
+let started = false;
+
+async function startMusic() {
+  if (songMissing) return false;
+  try {
+    await song.play();
+    started = true;
+    updateMusicButton();
+    musicStatus.textContent = "Our song is playing ♡";
+    overlay.classList.add("hidden");
+    removeGestureListeners();
+    return true;
+  } catch (error) {
+    updateMusicButton();
+    musicStatus.textContent =
+      "Tap the button once more to start our song ♡";
+    return false;
+  }
+}
+
+// 1) Try automatic start on load (works only if the browser allows it).
+window.addEventListener("load", () => { startMusic(); });
+
+// 2) Opening button: the guaranteed way (a real tap is allowed to play sound).
+startButton.addEventListener("click", async () => {
+  await startMusic();
+});
+
+// 3) Fallback: first touch / click / key press anywhere starts the song.
+const gestureEvents = ["pointerdown", "touchend", "keydown"];
+function onFirstGesture() {
+  if (!started) startMusic();
+}
+function removeGestureListeners() {
+  gestureEvents.forEach((e) =>
+    window.removeEventListener(e, onFirstGesture)
+  );
+}
+gestureEvents.forEach((e) =>
+  window.addEventListener(e, onFirstGesture, { passive: true })
+);
+
+// Play / pause button in the top bar.
+musicButton.addEventListener("click", async (ev) => {
+  ev.stopPropagation();
+  if (song.paused) {
+    await startMusic();
+  } else {
+    song.pause();
+    updateMusicButton();
+  }
+});
+
+song.addEventListener("play", updateMusicButton);
+song.addEventListener("pause", updateMusicButton);
+/* ---------- PAUSE SONG WHILE VIDEO PLAYS ---------- */
+const memoryVideo = document.getElementById("memoryVideo");
+let resumeSong = false;
+memoryVideo.addEventListener("play", () => {
+  if (!song.paused) { song.pause(); resumeSong = true; }
+});
+function resumeAfterVideo() {
+  if (resumeSong) { song.play().catch(() => {}); resumeSong = false; }
+}
+memoryVideo.addEventListener("pause", resumeAfterVideo);
+memoryVideo.addEventListener("ended", resumeAfterVideo);
+
+/* ---------- QUIZ ----------
+   EDIT HERE: change questions, options, and the correct "answer" (0 = first option). */
+const QUIZ = [
+  {
+    q: "What did we sip together on our little car date?",
+    options: ["Cold coffee", "Green tea", "Mango shake", "Hot chocolate"],
+    answer: 0,
+    right: "Yes! Cold coffee and you, my perfect combination ♡",
+    wrong: "Close, but it was cold coffee. With you, even that tastes better ♡"
+  },
+  {
+    q: "What did I draw for you on the foggy window?",
+    options: ["A star", "A heart", "A smiley", "A flower"],
+    answer: 1,
+    right: "A heart, always a heart for you ♡",
+    wrong: "It was a heart. My heart, drawn on glass for you ♡"
+  },
+  {
+    q: "What little pink thing of yours stays with me?",
+    options: ["A ribbon", "A hair tie", "A scarf", "A bracelet"],
+    answer: 1,
+    right: "Yes! A tiny thing that means the world to me ♡",
+    wrong: "It's your hair tie. Small thing, big memory ♡"
+  },
+  {
+    q: "Where do I keep your photo, close to me, always?",
+    options: ["In my wallet", "On my desk", "In a drawer", "In my bag"],
+    answer: 0,
+    right: "In my wallet, right next to me, always ♡",
+    wrong: "It lives in my wallet, close to me, always ♡"
+  }
+];
+
+const quizCard = document.getElementById("quizCard");
+let qi = 0, score = 0;
+
+function renderQuestion() {
+  const item = QUIZ[qi];
+  quizCard.innerHTML =
+    '<div class="quiz-progress">Question ' + (qi + 1) + ' of ' + QUIZ.length + '</div>' +
+    '<div class="quiz-q"></div>' +
+    '<div class="quiz-options"></div>' +
+    '<div class="quiz-feedback" id="quizFeedback"></div>';
+  quizCard.querySelector(".quiz-q").textContent = item.q;
+  const box = quizCard.querySelector(".quiz-options");
+  item.options.forEach((text, i) => {
+    const b = document.createElement("button");
+    b.className = "quiz-opt";
+    b.textContent = text;
+    b.addEventListener("click", () => answer(i, box));
+    box.appendChild(b);
+  });
+}
+
+function answer(i, box) {
+  const item = QUIZ[qi];
+  const buttons = box.querySelectorAll(".quiz-opt");
+  buttons.forEach((b, idx) => {
+    b.disabled = true;
+    if (idx === item.answer) b.classList.add("right");
+    else if (idx === i) b.classList.add("wrong");
+  });
+  const ok = i === item.answer;
+  if (ok) score++;
+  document.getElementById("quizFeedback").textContent = ok ? item.right : item.wrong;
+  if (ok) burstHearts(8);
+  setTimeout(() => {
+    qi++;
+    qi < QUIZ.length ? renderQuestion() : renderFinal();
+  }, 1900);
+}
+
+function renderFinal() {
+  let msg;
+  if (score === QUIZ.length) msg = "Perfect score! You remember every little thing ♡";
+  else if (score >= QUIZ.length - 1) msg = "Almost perfect! You know us so well ♡";
+  else msg = "Even if you forget a few, I'll keep every memory safe for us ♡";
+  quizCard.innerHTML =
+    '<div class="quiz-progress">You scored ' + score + ' / ' + QUIZ.length + '</div>' +
+    '<div class="quiz-big"></div>' +
+    '<div class="quiz-feedback">One last question, and this one matters most...</div>' +
+    '<div class="quiz-q">Will you be my forever?</div>' +
+    '<div class="final-actions" id="finalActions">' +
+      '<button class="cta yes-btn" id="yesBtn">Yes, always ♡</button>' +
+      '<button class="no-btn" id="noBtn">No</button>' +
+    '</div>';
+  quizCard.querySelector(".quiz-big").textContent = msg;
+  if (score === QUIZ.length) burstHearts(20);
+
+  const noBtn = document.getElementById("noBtn");
+  const area = document.getElementById("finalActions");
+  function dodge(e) {
+    if (e) e.preventDefault();
+    const maxX = area.clientWidth - noBtn.offsetWidth;
+    const maxY = area.clientHeight - noBtn.offsetHeight;
+    noBtn.style.transform = "none";
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+  }
+  noBtn.addEventListener("pointerenter", dodge);
+  noBtn.addEventListener("touchstart", dodge, { passive: false });
+  noBtn.addEventListener("click", dodge);
+
+  document.getElementById("yesBtn").addEventListener("click", () => {
+    quizCard.innerHTML =
+      '<div class="heart">♥</div>' +
+      '<div class="quiz-big">She said yes ♡</div>' +
+      '<div class="quiz-feedback">Then it\'s settled. I choose you today, tomorrow, and in every tomorrow after. I love you.</div>';
+    burstHearts(45);
+  });
+}
+
+function burstHearts(n) {
+  for (let i = 0; i < n; i++) {
+    const h = document.createElement("span");
+    h.className = "float-heart";
+    h.textContent = Math.random() > .5 ? "♥" : "♡";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.fontSize = 16 + Math.random() * 26 + "px";
+    h.style.animationDelay = Math.random() * .8 + "s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 4500);
+  }
+}
+
+renderQuestion();
+</script>
+
+</body>
+</html>
